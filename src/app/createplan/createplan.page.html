@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="warning">
+      Create a plan
+    </ion-title>
+    <ion-button (click)="backToHome()"fill="clear">
+      <ion-icon color="warning" name="chevron-back"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form class="create-form" [formGroup]="planForm" (ngSubmit)="CreatePlan()">
+    <ion-item>
+      <ion-label position="floating">Title</ion-label>
+      <ion-input formControlName="title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descriptipn</ion-label>
+      <ion-input formControlName="description"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Time</ion-label>
+      <ion-datetime formControlName="time" displayFormat="HH:mm"></ion-datetime>
+    </ion-item>
+
+      <ion-button (click)="CreatePlan()" [disabled]="planForm.invalid" expand="block">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+        &nbsp;Create
+      </ion-button>
+  </form>
+</ion-content>

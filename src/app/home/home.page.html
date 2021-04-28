@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar mode="ios">
+    <ion-title color="warning">
+      LIFE
+    </ion-title>
+      <ion-datetime class="nowTime" slot="end" displayFormat="HH:mm" [(ngModel)]="today" readonly></ion-datetime>
+      <ion-button (click)="logOut()" fill="clear">
+        <ion-icon name="exit-outline" slot="start" color="warning"></ion-icon>
+      </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card *ngFor="let plan of planList">
+    <ion-label>{{plan.title}}</ion-label>
+    <ion-label>{{plan.description}}</ion-label>
+    <ion-label>{{plan.time}}</ion-label>
+  </ion-card>
+</ion-content>
+
+<ion-content [fullscreen]="true">
+  <ion-fab (click)="routeCreate()" class="fabbutton" horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button class="create-fab-btn" type="ios" color="warning">
+      <ion-icon color="light" md="add" ios="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
